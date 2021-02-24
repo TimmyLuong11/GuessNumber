@@ -7,32 +7,49 @@ namespace GuessNumber
         static void Main(string[] args)
         {
             Random rand;
-            int min, max, ranNum, guess=0;
-            string answer;
+            rand = new Random();
+            int min, max, ranNum, guess=0, count=0;
+            string answer, minAns, maxAns;
 
             Console.WriteLine("Welcome to the number guessing game!");
+            
             Console.WriteLine("Please enter in a minimum number");
-            min = Convert.ToInt32(Console.ReadLine());
+            minAns = Console.ReadLine();
+            while (int.TryParse(minAns, out min) == false)
+            {
+                Console.WriteLine("Sory you enter an invalid number. Please enter a minimum number");
+                minAns = Console.ReadLine();
+
+            }
+            
             Console.WriteLine("Please enter in a maximum number");
-            max = Convert.ToInt32(Console.ReadLine());
+            maxAns = Console.ReadLine();
+            while (int.TryParse(maxAns, out max)==false)
+            {
+                Console.WriteLine("Sory you enter an invalid number. Please enter a maximum number");
+                maxAns = Console.ReadLine();
+            }
+            
+            ranNum = rand.Next(min, max+1);
+            Console.WriteLine($"This is the random Num {ranNum}");
+            
             Console.WriteLine("Please enter in your guess");
-            answer = Console.ReadLine();
 
-            rand = new Random();
-            ranNum = rand.Next(min, max);
-
-            while(int.TryParse(answer, out guess)==false)
+            do
             {
-                Console.WriteLine("Sory you enter an invalid #. Please try again");
-                guess = Convert.ToInt32(Console.ReadLine());
+                answer = Console.ReadLine();
+                ++count;
+                while (int.TryParse(answer, out guess) == false)
+                {
+                    Console.WriteLine("Sory you enter an invalid number. Please try again");
+                    answer = Console.ReadLine();
+                    ++count;
+                }
 
-            }
-            Console.WriteLine(ranNum);
-            while (guess != ranNum)
-            {
-                guess = Convert.ToInt32(Console.ReadLine());
-            }
+            } while (guess != ranNum);
+
             Console.WriteLine("You guess correctly!");
+            Console.WriteLine($"It took you {count} times to guess correctly!");
         }
     }
 }
