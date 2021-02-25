@@ -8,8 +8,7 @@ namespace GuessNumber
         {
             //Timmy Luong - 113401608
             //Declaring Variables
-            Random rand;
-            rand = new Random();
+            Random rand = new Random();
             int min, max, ranNum, guess=0, count=0;
             string answer, minAns, maxAns;
 
