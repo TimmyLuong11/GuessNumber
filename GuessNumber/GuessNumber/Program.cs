@@ -40,7 +40,7 @@ namespace GuessNumber
             
             //Asking the user to start guessing and if the input is not valid it will ask the user to try agian
             Console.WriteLine("Please enter in your guess");
-            do
+            while (guess != ranNum)
             {
                 answer = Console.ReadLine();
                 ++count;
@@ -50,8 +50,7 @@ namespace GuessNumber
                     answer = Console.ReadLine();
                     ++count;
                 }
-
-            } while (guess != ranNum);
+            }
 
             //Outputting to the user they have guess correctly, the correct number, and how many times it took
             Console.WriteLine("You guess correctly!");
