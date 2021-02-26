@@ -16,21 +16,21 @@ namespace GuessNumber
             Console.WriteLine("Welcome to the number guessing game!");
             
             //Asking the user to enter in a valid minimum number, if not it will loop until valid
-            Console.WriteLine("Please enter in a minimum number");
+            Console.WriteLine("Please enter in a minimum number:");
             minAns = Console.ReadLine();
             while (int.TryParse(minAns, out min) == false)
             {
-                Console.WriteLine("Sory you enter an invalid number. Please enter a minimum number");
+                Console.WriteLine("Sory you enter an invalid number. Please enter a minimum number.");
                 minAns = Console.ReadLine();
 
             }
 
             //Asking the user to enter in a valid maximum number, if not it will loop until valid
-            Console.WriteLine("Please enter in a maximum number");
+            Console.WriteLine("Please enter in a maximum number:");
             maxAns = Console.ReadLine();
             while (int.TryParse(maxAns, out max)==false)
             {
-                Console.WriteLine("Sory you enter an invalid number. Please enter a maximum number");
+                Console.WriteLine("Sory you enter an invalid number. Please enter a maximum number.");
                 maxAns = Console.ReadLine();
             }
             
@@ -38,14 +38,14 @@ namespace GuessNumber
             ranNum = rand.Next(min, max+1);
             
             //Asking the user to start guessing and if the input is not valid it will ask the user to try agian
-            Console.WriteLine("Please enter in your guess");
+            Console.WriteLine($"Please enter in your guess between {min} and {max}:");
             while (guess != ranNum)
             {
                 answer = Console.ReadLine();
                 ++count;
                 while (int.TryParse(answer, out guess) == false)
                 {
-                    Console.WriteLine("Sory you enter an invalid number. Please try again");
+                    Console.WriteLine("Sory you enter an invalid number. Please try again.");
                     answer = Console.ReadLine();
                     ++count;
                 }
